@@ -10,18 +10,18 @@
 
   <body>
     <div id="savior-form">
+		<h1>Confluece Savior</h1>
+		<p>Detect why your confluence is full of crap. (And htmx is good!)</p>
         <form 
             hx-post="/text"
             hx-target="#savior-answer"
         > 
-		<h1>Confluece Savior</h1>
-		<p>Detect why your confluence is full of crap. (And htmx is good!)</p>
             <textarea name="text" rows="22" cols="90"></textarea>
 	    <br/>
             <button style="font-size: 60px" type="submit">Investigate</button>
         </form> 
     </div>
-    <div id="savior-answer">
+    <div style="margin-top: 8em;" id="savior-answer">
     </div>
   </body>
 </html>
