@@ -2,6 +2,7 @@ from settings import AZURE_OPENAI_KEY, AZURE_OPENAI_ENDPOINT, AZURE_OPENAI_API_V
 import chromadb
 from langchain.vectorstores.chroma import Chroma
 from langchain.embeddings import AzureOpenAIEmbeddings
+import os
 
 DB_PATH = 'chroma.db'
 embedding_model = AzureOpenAIEmbeddings(
@@ -22,3 +23,9 @@ def embed_document(path):
     metadata = [{}]
 
     chroma.add_texts(chunks, metadata)
+
+
+# Create embeddings if run as main
+if __name__ == '__main__':
+    for file in os.listdir('./docs/context'):
+        embed_document(f'./docs/context/{file}')
