@@ -2,6 +2,7 @@ from fastapi import FastAPI, Form
 from fastapi.responses import HTMLResponse
 from fastapi.staticfiles import StaticFiles
 from typing import Annotated
+from llm_backend import chain
 import os
 
 app = FastAPI()
@@ -29,11 +30,10 @@ async def docs(doc):
 @app.post("/text", response_class=HTMLResponse)
 async def new_text(text: Annotated[str, Form()]):
     print(text)
+    answer = chain({"question": text})["answer"]
     return f"""
     <div>
-        You said: {text}
-
-        I approve your message!
+        {answer}
     </div>
     """
 
