@@ -5,14 +5,20 @@
     <title>Confluence Savior</title>
     <link rel="stylesheet" href="main.css" />
     <link rel="icon" href="images/favicon.png" />
+    <script src="https://unpkg.com/htmx.org@1.9.10"></script>
   </head>
 
   <body>
-    <div class="savior-form">
-        <form>
-            <textarea rows="25" cols="110"></textarea>
-            <button>Submit</button>
-        </form>
+    <div id="savior-form">
+        <form 
+            hx-post="/text"
+            hx-target="#savior-answer"
+        > 
+            <textarea name="text" rows="22" cols="90"></textarea>
+            <button type="submit">Submit</button>
+        </form> 
+    </div>
+    <div id="savior-answer">
     </div>
   </body>
 </html>

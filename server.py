@@ -5,8 +5,6 @@ from typing import Annotated
 
 app = FastAPI()
 
-app.mount("/", StaticFiles(directory="public", html= True), name="public")
-
 @app.get("/hello")
 async def root():
     return {"message": "Hello World"}
@@ -19,3 +17,7 @@ async def new_text(text: Annotated[str, Form()]):
         Some response fragment
     </div>
     """
+
+
+app.mount("/", StaticFiles(directory="public", html= True), name="public")
+
