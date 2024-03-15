@@ -9,6 +9,8 @@ uvicorn server:app --reload
 
 Pray the bit gods, because this is couple of hours POC.
 
+Head to `localhost:8000` and see the amazing (htmx!) UI.
+
 ## The Scope
 
 You hate confluence. You don't hate the confluence because what confluence is. You hate it because it contains outdated information. And even worse, it contains conflicting information.
