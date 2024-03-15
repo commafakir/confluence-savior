@@ -1,18 +1,15 @@
 from fastapi import FastAPI, Form
 from fastapi.responses import HTMLResponse
+from fastapi.staticfiles import StaticFiles
 from typing import Annotated
 
 app = FastAPI()
 
+app.mount("/", StaticFiles(directory="public", html= True), name="public")
 
-@app.get("/")
+@app.get("/hello")
 async def root():
     return {"message": "Hello World"}
-
-
-
-app = FastAPI()
-
 
 @app.post("/text", response_class=HTMLResponse)
 async def new_text(text: Annotated[str, Form()]):
