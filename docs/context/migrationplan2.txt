@@ -1,0 +1,30 @@
+**Document 2: Migration Plan**
+
+Title: Jankon Betoni Data Migration Plan: On-Premise SQL to Azure SQL via Blob Storage
+
+Executive Summary:
+
+This migration plan provides insights into the methodical approach taken to transfer data from Jankon Betoni's on-premise SQL Server database, Kanada, to an Azure SQL database named ThousandDollarBillDB, utilizing Azure Blob Storage as an intermediate storage solution.
+
+Migration Steps:
+
+1. Pre-Migration Assessment:
+   - A comprehensive assessment of the existing data schema and dependencies within the Kanada database was conducted.
+   - Data cleansing or transformation requirements were identified to align with Azure SQL database schema standards.
+
+2. Azure Infrastructure Setup:
+   - Necessary Azure resources, including Azure SQL database ThousandDollarBillDB and Blob Storage container AimoNivaska, were provisioned.
+   - Network connectivity and security settings were configured to facilitate data transfer between on-premise and Azure environments.
+
+3. Azure Data Factory Configuration:
+   - Linked Services for Kanada SQL Server, ThousandDollarBillDB Azure SQL database, and AimoNivaska Blob Storage within Azure Data Factory were configured.
+   - Datasets representing source (Kanada), interim storage (AimoNivaska), and target (ThousandDollarBillDB) data entities were defined.
+
+4. Data Transfer Pipeline Design:
+   - An ADF Pipeline was created:
+     - The Copy Data Activity extracted data from the source dataset (Kanada) and staged it in Blob Storage (AimoNivaska).
+     - Another Copy Data Activity then loaded staged data from Blob Storage (AimoNivaska) into the target dataset (ThousandDollarBillDB).
+
+Conclusion:
+
+This meticulous migration plan facilitated a seamless data transfer process from Jankon Betoni's on-premise SQL Server database to Azure SQL using Azure Data Factory and Blob Storage. The structured approach ensures minimal disruption to operations while maximizing the benefits of Azure SQL for data storage and analytics.

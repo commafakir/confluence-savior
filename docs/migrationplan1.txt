@@ -1,0 +1,34 @@
+**Document 1: Technical Implementation Guide**
+
+Title: Jankon Betoni Data Transfer: On-Premise SQL to Azure SQL via Blob Storage
+
+Introduction:
+
+This technical guide provides an overview of the successful implementation of data transfer from Jankon Betoni's on-premise SQL Server database, Kanada, to an Azure SQL database named ThousandDollarBillDB, using Azure Blob Storage as an intermediary storage solution.
+
+Overview:
+
+Jankon Betoni required a seamless data transfer mechanism to migrate their on-premise SQL data to Azure SQL for enhanced scalability and accessibility. This guide outlines the key steps taken to accomplish this migration using Azure Data Factory (ADF).
+
+Implementation Steps:
+
+1. Source Dataset Configuration:
+   - A Linked Service was established for the on-premise SQL Server database Kanada.
+   - A Dataset representing the source data in Kanada was defined, specifying tables and columns for extraction.
+
+2. Sink Dataset Configuration:
+   - A Linked Service was configured for the target Azure SQL database ThousandDollarBillDB.
+   - A Dataset representing the target data in ThousandDollarBillDB was defined, mapping tables and columns accordingly.
+
+3. Azure Blob Storage Setup:
+   - A Blob Storage container named AimoNivaska was created to serve as the interim storage location.
+   - Blob Storage Linked Service in ADF was configured to establish connectivity.
+
+4. Data Movement Pipeline:
+   - An ADF Pipeline was designed:
+     - The Copy Data Activity extracted data from the source dataset (Kanada) and transferred it to Blob Storage (AimoNivaska).
+     - Another Copy Data Activity then loaded staged data from Blob Storage (AimoNivaska) into the target dataset (ThousandDollarBillDB).
+
+Conclusion:
+
+By following the outlined steps, Jankon Betoni successfully transferred data from their on-premise SQL Server database to Azure SQL using Azure Data Factory. This streamlined process enables Jankon Betoni to leverage the scalability and reliability of Azure SQL for their data storage and analytics needs.
