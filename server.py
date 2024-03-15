@@ -12,9 +12,11 @@ async def root():
 @app.post("/text", response_class=HTMLResponse)
 async def new_text(text: Annotated[str, Form()]):
     print(text)
-    return """
+    return f"""
     <div>
-        Some response fragment
+        You said: {text}
+
+        I approve your message!
     </div>
     """
 
